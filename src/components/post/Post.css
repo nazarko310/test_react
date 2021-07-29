@@ -1,0 +1,53 @@
+.post {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+}
+
+.polar {
+    position: relative;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+}
+
+.polar__content {
+    max-width: 225px;
+}
+
+.polar__content,
+.blog__post-content {
+    padding-left: 30px;
+    position: absolute;
+    top: 30px;
+
+    color: #ffffff;
+}
+
+.polar__content h2,
+.blog__post-content h2 {
+    font-size: 39px;
+    margin-bottom: 20px;
+}
+
+.polar__content p,
+.blog__post-content p {
+    font-size: 15px;
+}
+
+.blog {
+    display: grid;
+    grid-template-columns: 45% 55%;
+    position: relative;
+}
+
+.blog__post-content {
+    max-width: 245px;
+}
+
+.users-seen {
+    display: flex;
+    justify-content: space-between;
+    margin: 50px 0;
+}
