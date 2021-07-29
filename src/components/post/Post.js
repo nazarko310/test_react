@@ -1,6 +1,6 @@
 import './Post.css'
 
-export default function Post({item, likes, reposts, editHistory}) {
+export default function Post({item, editHistory}) {
 
     return (
         <div>
