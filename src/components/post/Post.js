@@ -24,7 +24,7 @@ export default function Post({item, editHistory}) {
                     )
                 }
             </div>
-            <div className='users-seen'>
+            <div className='users-seens'>
                 <p>Likes: {`${item.likes}`}</p>
                 <p>Reposts: {`${item.reposts}`}</p>
             </div>
