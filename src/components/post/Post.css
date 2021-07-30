@@ -1,16 +1,12 @@
-.post {
-    display: grid;
-    grid-template-columns: repeat(2, 50%);
+.post img {
+    width: 100%;
+    height: 100%;
 }
 
 .polar {
     position: relative;
 }
 
-img {
-    height: 100%;
-    width: 100%;
-}
 
 .polar__content {
     max-width: 225px;
@@ -21,33 +17,76 @@ img {
     padding-left: 30px;
     position: absolute;
     top: 30px;
-
-    color: #ffffff;
 }
 
-.polar__content h2,
-.blog__post-content h2 {
-    font-size: 39px;
-    margin-bottom: 20px;
-}
-
-.polar__content p,
-.blog__post-content p {
-    font-size: 15px;
-}
 
 .blog {
     display: grid;
     grid-template-columns: 45% 55%;
-    position: relative;
 }
 
 .blog__post-content {
     max-width: 245px;
 }
 
-.users-seens {
+.users-seen {
     display: flex;
     justify-content: space-between;
     margin: 50px 0;
+}
+
+.post__btn {
+    position: absolute;
+    top: 25%;
+    padding-left: 20px;
+}
+
+.post__btn > * {
+    width: 100px;
+    height: 40px;
+    background-color: #d10027;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    text-transform: uppercase;
+    border-radius: 8px;
+}
+
+.post__btn:hover {
+    transform: scale(1.1);
+}
+
+.post__likes,
+.post__reposts {
+    position: absolute;
+    height: 80px;
+    width: 100px;
+    bottom: 20px;
+}
+
+.post__likes {
+    left: 20px;
+
+}
+
+.post__reposts {
+    right: 20px;
+}
+
+.post__likes img,
+.post__reposts img {
+    width: unset;
+    height: unset;
+    position: absolute;
+    top: 20px;
+
+}
+
+.people{
+    position: absolute;
+    bottom: 0;
+    z-index: 5555;
+    color: #ffffff;
 }
