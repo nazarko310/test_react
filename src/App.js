@@ -1,11 +1,16 @@
 import './App.css';
 import Movies from "./component/movies/Movies";
-
+import {BrowserRouter as Router} from "react-router-dom";
 
 function App() {
 
     return (
-        <Movies/>
+        <div className='container'>
+            <Router>
+
+                <Movies/>
+            </Router>
+        </div>
     );
 }
 
