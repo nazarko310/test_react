@@ -1,0 +1,44 @@
+.movieDetails__block {
+    display: flex;
+    margin-top: 80px;
+    column-gap: 40px;
+
+}
+
+.movieDetails__block img {
+    max-width: 30%;
+
+}
+
+.movieDetails__block p {
+    color: #ffffff;
+
+
+}
+
+.movieDetails__content {
+    display: flex;
+
+}
+
+.movieDetails__content p {
+    height: 50px;
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.movieDetails__content p:nth-child(odd) {
+    background-color: #222;
+}
+
+.movieDetails__overview {
+    max-width: 70%;
+    color: #ffffff;
+    background-color: #222;
+    text-indent: 10px;
+    padding: 20px 20px 10px;
+}

@@ -2,6 +2,7 @@ import './Movie.css'
 import {Link} from "react-router-dom";
 
 export default function Movie({item}) {
+
     return (
         <div className='movie__block'>
 
@@ -17,8 +18,8 @@ export default function Movie({item}) {
 
             <h3 className='movie__block_title'>{item.original_title}</h3>
             <div className='movie__block_inner'>
-                <p>{item.original_language}</p>
                 <p>{item.release_date}</p>
+                <p>{item.vote_average}</p>
             </div>
         </div>
     )

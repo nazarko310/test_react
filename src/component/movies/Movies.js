@@ -12,10 +12,13 @@ export default function Movies() {
     }, [])
     // console.log(movies)
     return (
-        <div className='movie__inner'>
-            {
-                movies.map(value => <Movie item={value} key={value.id}/>)
-            }
+        <div>
+
+            <div className='movie__inner'>
+                {
+                    movies.map(value => <Movie item={value} key={value.id}/>)
+                }
+            </div>
             <Route path={'/movie/:id'} component={MovieDetails}/>
         </div>
     )
