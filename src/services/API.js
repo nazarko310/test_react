@@ -5,7 +5,7 @@ let axiosInstance = axios.create({
 });
 
 const getMovie = () => axiosInstance('movie/popular?api_key=5a1a052b877422d51ab6cead862c74bf');
-const getGenre = () => axiosInstance('genre/movie/list?api_key=5a1a052b877422d51ab6cead862c74bf');
+const getSearch = (value) => axiosInstance(`search/movie?&api_key=5a1a052b877422d51ab6cead862c74bf&query=+${value}`)
 
 
-export {getMovie, getGenre};
+export {getMovie, getSearch};

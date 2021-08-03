@@ -17,7 +17,6 @@ export default function MovieDetails({location: {state}}) {
                         <p>Title</p>
                         <p>Popularity</p>
                         <p>Release_date</p>
-                        <p>Genre</p>
                     </div>
                     <div className='movieDetails__content-text'>
                         <p>{movieDetails.original_title}</p>

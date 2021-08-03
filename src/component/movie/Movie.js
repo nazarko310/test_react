@@ -2,7 +2,6 @@ import './Movie.css'
 import {Link} from "react-router-dom";
 
 export default function Movie({item}) {
-
     return (
         <div className='movie__block'>
 
@@ -12,7 +11,6 @@ export default function Movie({item}) {
                     state: item
                 }
             }>
-
                 <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} alt={item.original_title}/>
             </Link>
 
