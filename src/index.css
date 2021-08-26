@@ -1,13 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #131415;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+img {
+    max-width: 100%;
+}
+
+.container {
+    max-width: 1170px;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+.header {
+    background-color: #000;
+}
+
+.header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header__logo {
+    max-width: 10%;
+}
+
+.header__menu {
+    display: flex;
+    column-gap: 40px;
+}
+
+.header__menu a {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 24px;
+}
+
+.characters {
+    margin-top: 50px;
+}
+
+.characters__inner {
+    display: grid;
+    grid-template-columns: repeat(4, calc((280 / 1170) * 100%));
+    grid-column-gap: 16px;
+    grid-row-gap: 40px;
+}
+
+.characters__elements {
+    background-color: #0000000d;
+    color: #ffffff;
+}
+
+
