@@ -10,8 +10,10 @@ function App() {
             <Headers/>
             <Switch>
                 <Route exact path={'/'} render={() =>
-                    <div>
-                        This is some page about Ricky and Morty
+                    <div className='container'>
+                        <h1 className='title'>
+                            This is some page about Ricky and Morty
+                        </h1>
                     </div>
                 }/>
                 <Route path={'/character'} render={(props) => <Characters {...props}/>}/>

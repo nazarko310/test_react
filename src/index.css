@@ -54,6 +54,14 @@ img {
     font-size: 24px;
 }
 
+.title {
+    max-width: 500px;
+    margin: 50px auto 0;
+    font-size: 60px;
+    color: #ffffff;
+    text-align: center;
+}
+
 .characters {
     margin-top: 50px;
 }
@@ -70,4 +78,26 @@ img {
     color: #ffffff;
 }
 
+.characters__elements_info{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
 
+.pagination {
+    margin: 50px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.pagination a {
+    padding: 9px 9px;
+    color: #fff;
+    border-right: 1px solid #333;
+    background-color: #1f2123;
+    text-decoration: none;
+}
+
+.pagination a:hover {
+    background-color: #ca563f;
+}

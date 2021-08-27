@@ -1,28 +1,30 @@
 import {useDispatch, useSelector} from "react-redux";
-import {useEffect} from "react";
-import {urlApiCharacters} from "../../services/API";
+import {Fragment, useEffect} from "react";
 import Character from "../character/Character";
+import {urlApiCharacters} from "../../services/API";
 
-export default function PageOfCharacter({location: {state}}) {
-    console.log(state)
+export default function PageOfCharacter({match: {params: {number}}}) {
     const characters = useSelector(store => store.characterReducer.charactersStore);
     const loading = useSelector(store => store.characterReducer.loading);
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch({type: 'LOADING'})
-        fetch(`${urlApiCharacters}/?page=${state}`)
+        fetch(`${urlApiCharacters}?page=${number}`)
             .then(value => value.json())
             .then(response => {
                 dispatch({type: 'SET_CHARACTERS', payload: response.results})
+
             })
         dispatch({type: 'DONE'})
-    }, [dispatch, state])
-
+    }, [dispatch, number])
     return (
-        <div>
+        <Fragment>
             {
-                characters.map(value => <Character item={value} loading={loading} key={value.id}/>)
+                number
+                    ? characters.map(value => <Character item={value} loading={loading} key={value.id}/>)
+                    : <Fragment>OOps</Fragment>
+
             }
-        </div>
+        </Fragment>
     )
 }
