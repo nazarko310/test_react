@@ -22,7 +22,6 @@ export default function Characters({match: {url}}) {
         dispatch({type: 'DONE'})
     }, [dispatch])
 
-
     return (
         <div className='characters'>
             <div className="container">
