@@ -1,24 +1,21 @@
 import './App.css';
 
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import Headers from "./component/header/Headers";
-import Characters from "./component/charachters/Characters";
+import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom";
+
+import Headers from "./component/Characters/Header/Headers";
+import CharacterPage from "./container/CharactrePage/CharacterPage";
 
 function App() {
     return (
         <Router>
             <Headers/>
             <Switch>
-                <Route exact path={'/'} render={() =>
-                    <div className='container'>
-                        <h1 className='title'>
-                            This is some page about Ricky and Morty
-                        </h1>
-                    </div>
-                }/>
-                <Route path={'/character'} render={(props) => <Characters {...props}/>}/>
+                <Redirect exact from="/" to="/character?page=1"/>
+                <Route path='/character' component={CharacterPage}/>
             </Switch>
+
         </Router>
+
     );
 }
 

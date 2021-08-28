@@ -1,3 +1,4 @@
 export const urlApi = 'https://rickandmortyapi.com/api';
 export const urlApiCharacters = `${urlApi}/character`;
-export const urlApiCharacterID = (id) => `${urlApi}/character/${id}`
+export const urlApiCharactersPage = (page) => `${urlApiCharacters}?page=${page}`;
+export const urlApiCharacterID = (id) => `${urlApiCharacters}/${id}`

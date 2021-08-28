@@ -1,8 +1,6 @@
 const initialState = {
     charactersStore: [],
     infoStore: {},
-    loading: false
-
 }
 
 export const characterReducer = (state = initialState, action) => {

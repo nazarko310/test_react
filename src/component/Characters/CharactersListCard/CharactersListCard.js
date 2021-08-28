@@ -1,13 +1,13 @@
 import {Fragment} from "react";
 import {Link} from "react-router-dom";
 
-export default function Character({item, loading}) {
+export default function CharactersListCard({item, loading}) {
     if (loading) {
         return <h2>Loading...</h2>
     }
     return (
         <Link to={{
-            pathname: `/character/${item.id}`,
+            pathname: `character/${item.id}`,
             state: item
         }}>
             <div className='characters__elements'>
