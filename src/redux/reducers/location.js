@@ -1,13 +1,14 @@
 const initialState = {
-    charactersStore: [],
-    infoStore: {},
+    locationStore: [],
+    infoStore: {}
+
 }
 
-export const characterReducer = (state = initialState, action) => {
+export const locationReducers = (state = initialState, action) => {
     switch (action.type) {
-        case 'SET_CHARACTERS':
+        case 'SET_LOCATION':
             return {...state, charactersStore: action.payload}
-        case 'SET_INFO_CHARACTERS':
+        case 'SET_INFO_LOCATION':
             return {...state, infoStore: action.payload}
         default:
             return {...state}

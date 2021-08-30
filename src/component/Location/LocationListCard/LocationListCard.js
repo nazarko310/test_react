@@ -1,26 +1,26 @@
 import {Fragment} from "react";
 import {Link} from "react-router-dom";
 
-export default function CharactersListCard({item, loading}) {
+export default function LocationListCard({item, loading}) {
     if (loading) {
         return (<h2>Loading...</h2>)
     }
     return (
         <Link to={{
-            pathname: `character/${item.id}`,
+            pathname: `location/${item.id}`,
             state: item
         }}>
             <div className='characters__elements'>
-                <img src={item.image} alt={item.name}/>
+                <h1>{item.type}</h1>
                 <div className='characters__elements_info'>
                     <p>
                         {item.name}
                     </p>
                     <p>
                         {
-                            item.gender === 'unknown'
-                                ? <Fragment>Not a person</Fragment>
-                                : item.gender
+                            item.dimension === 'unknown'
+                                ? <Fragment>Dimension not found</Fragment>
+                                : item.dimension
                         }
 
                     </p>

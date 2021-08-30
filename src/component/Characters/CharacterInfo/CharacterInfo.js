@@ -1,20 +1,34 @@
 import {useLocation} from "react-router-dom";
 import {useEffect, useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
 
 
 export default function CharacterInfo() {
     const {state} = useLocation();
+    const dispatch = useDispatch();
 
     const [location, setLocation] = useState([]);
 
+    const loading = useSelector(store => store.characterReducer.loading);
+
+
     useEffect(() => {
+
+        dispatch({type: 'LOADING'})
+
+
         fetch(state.location.url)
             .then(value => value.json())
             .then(response => {
                 setLocation(response)
             });
-    }, [state.location.url])
+        dispatch({type: 'DONE'})
 
+    }, [dispatch, state.location.url])
+
+    if (loading || !state || !location) {
+        return (<h2>Loading...</h2>)
+    }
 
     return (
         <div className='character__details'>

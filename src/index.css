@@ -93,9 +93,10 @@ img {
 .pagination button {
     padding: 9px 9px;
     color: #fff;
-    border-right: 1px solid #333;
     background-color: #1f2123;
     text-decoration: none;
+    border: none;
+    border-right: 1px solid #333;
 }
 
 .pagination button:hover {
