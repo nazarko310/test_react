@@ -28,6 +28,12 @@ img {
     margin: 0 auto;
 }
 
+.error {
+    color: #ffffff;
+    font-size: 60px;
+    text-align: center;
+}
+
 .header {
     background-color: #000;
 }
@@ -108,6 +114,10 @@ img {
     column-gap: 40px;
 }
 
+.character__details_inner img {
+    width: calc((340 / 1170) * 100%);
+}
+
 .character__details_content {
     width: calc((830 / 1170) * 100%);
 }
@@ -140,8 +150,10 @@ img {
 
 .character__details_contentLeft p,
 .character__details_contentRight p {
-    padding: 10px;
-
+    height: 41px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .character__details_contentLeft p:nth-child(even),

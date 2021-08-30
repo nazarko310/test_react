@@ -1,51 +1,56 @@
-import {useDispatch, useSelector} from "react-redux";
 import {Fragment, useEffect} from "react";
-
-
-import {urlApiCharactersPage} from "../../../services/API";
-import CharactersListCard from "../CharactersListCard/CharactersListCard.js";
+import {useDispatch, useSelector} from "react-redux";
 import {useLocation} from "react-router-dom";
-import Pagination from "../../Main/Pagination/Pagination";
 
+import {CharactersListCard} from "../CharactersListCard";
+import {Pagination} from "../../Main";
+import Search from "../../Main/Search/Search";
+import {getCharacters} from "../../../services";
 
-
-export default function CharactersList() {
+export function CharactersList() {
     const {search} = useLocation();
 
-    const info = useSelector(store => store.characterReducer.infoStore);
-    const characters = useSelector(store => store.characterReducer.charactersStore);
-    const loading = useSelector(store => store.loadingReducers.loading);
+    const {info, characters} = useSelector(({characterReducer}) => characterReducer);
+    const {loading} = useSelector(({loadingReducers}) => loadingReducers);
+
 
 
     const dispatch = useDispatch();
 
 
     useEffect(() => {
+        async function fetchData() {
+            try {
+                dispatch({type: 'LOADING'});
 
-        dispatch({type: 'LOADING'})
+                const {results, info} = await getCharacters(search) || {};
 
-        fetch(`${urlApiCharactersPage(search)}`)
-            .then(value => value.json())
-            .then(response => {
-                dispatch({type: 'SET_CHARACTERS', payload: response.results})
-                dispatch({type: 'SET_INFO_CHARACTERS', payload: response.info})
-            })
+                dispatch({type: 'SET_CHARACTERS', payload: results});
+                dispatch({type: 'SET_INFO_CHARACTERS', payload: info});
 
-        dispatch({type: 'DONE'})
+                dispatch({type: 'DONE'});
+            } catch (e) {
+                console.error(e);
+            }
+        }
 
-
+        fetchData();
     }, [dispatch, search])
 
+
+
+
+
     if (loading || !characters) {
-        return (<h2>Loading...</h2>)
+        return (<h2 className='error'>Loading...</h2>)
     }
 
     return (
         <Fragment>
+            <Search/>
             <div className="characters__inner">
                 {
                     characters.map(value => <CharactersListCard item={value} loading={loading} key={value.id}/>)
-
                 }
 
             </div>

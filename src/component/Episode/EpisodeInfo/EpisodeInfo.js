@@ -1,34 +1,37 @@
 import {useLocation} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
-import {getCharacterResidentsByLocationId} from "../../../services";
+import {getCharacterByEpisodeId} from "../../../services";
 
-export function LocationInfo() {
+export default function EpisodeInfo() {
 
-    const {state, state: {residents}} = useLocation();
+    const {state, state: {characters}} = useLocation();
 
     const dispatch = useDispatch();
 
-    const [resident, setResident] = useState([]);
+    const [character, setCharacter] = useState([]);
 
     const loading = useSelector(({loadingReducer}) => loadingReducer);
 
 
     useEffect(() => {
         async function fetchData() {
+
             try {
                 dispatch({type: 'LOADING'})
 
-                getCharacterResidentsByLocationId(residents[1]).then(setResident)
+                getCharacterByEpisodeId(characters[1]).then(setCharacter)
 
                 dispatch({type: 'DONE'})
+
             } catch (e) {
                 console.log(e)
             }
         }
 
         fetchData();
-    }, [dispatch, residents])
+
+    }, [dispatch, characters])
 
     if (loading || !state) {
         return (<h2>Loading...</h2>)
@@ -38,18 +41,18 @@ export function LocationInfo() {
         <div>
             <div className='character__details'>
                 <div className="character__details_inner">
-                    <img src='https://www.nme.com/wp-content/uploads/2020/04/rick-and-morty-season-4-696x443.jpg'
+                    <img src='https://media.cdn.adultswim.com/uploads/20191028/1910281358343-R&M.jpg'
                          alt={state.name}/>
                     <div className="character__details_content">
                         <h2>{state.name}</h2>
                         <div className="character__details_contentInner">
                             <div className='character__details_contentLeft'>
-                                <p>Type:</p>
-                                <p>Dimension:</p>
+                                <p>Air_date:</p>
+                                <p>episode:</p>
                             </div>
                             <div className='character__details_contentRight'>
-                                <p>{state.type}</p>
-                                <p>{state.dimension}</p>
+                                <p>{state.air_date}</p>
+                                <p>{state.episode}</p>
                             </div>
                         </div>
                         <h2>Resident</h2>
@@ -60,9 +63,9 @@ export function LocationInfo() {
                                 <p>Gender:</p>
                             </div>
                             <div className='character__details_contentRight'>
-                                <p>{resident.name}</p>
-                                <p>{resident.type}</p>
-                                <p>{resident.gender}</p>
+                                <p>{character.name}</p>
+                                <p>{character.type}</p>
+                                <p>{character.gender}</p>
 
                             </div>
                         </div>

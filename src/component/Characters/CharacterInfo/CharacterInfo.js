@@ -1,32 +1,36 @@
 import {useLocation} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
+import {getLocationByCharacterId} from "../../../services";
 
+export function CharacterInfo() {
+    const {state, state: {location: {url}}} = useLocation();
 
-export default function CharacterInfo() {
-    const {state} = useLocation();
     const dispatch = useDispatch();
 
     const [location, setLocation] = useState([]);
 
-    const loading = useSelector(store => store.characterReducer.loading);
+    const loading = useSelector(({loadingReducer}) => loadingReducer);
 
 
     useEffect(() => {
+        async function fetchData() {
+            try {
+                dispatch({type: 'LOADING'})
 
-        dispatch({type: 'LOADING'})
+                getLocationByCharacterId(url).then(setLocation);
 
+                dispatch({type: 'DONE'})
 
-        fetch(state.location.url)
-            .then(value => value.json())
-            .then(response => {
-                setLocation(response)
-            });
-        dispatch({type: 'DONE'})
+            } catch (e) {
+                console.log(e)
+            }
+        }
 
-    }, [dispatch, state.location.url])
+        fetchData();
+    }, [dispatch, url])
 
-    if (loading || !state || !location) {
+    if (loading || !url || !location) {
         return (<h2>Loading...</h2>)
     }
 

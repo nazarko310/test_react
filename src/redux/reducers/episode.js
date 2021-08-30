@@ -1,15 +1,16 @@
 const initialState = {
-    locationStore: [],
+    episodeStore: [],
     infoStore: {},
-
 }
 
 export const episodeReducers = (state = initialState, action) => {
     switch (action.type) {
         case 'SET_EPISODE':
-            return {...state, charactersStore: action.payload}
+            return {...state, episode: action.payload}
+
         case 'SET_INFO_EPISODE':
-            return {...state, infoStore: action.payload}
+            return {...state, info: action.payload}
+
         default:
             return {...state}
     }
